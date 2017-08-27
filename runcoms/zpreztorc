@@ -32,6 +32,7 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
+  'git' \
   'prompt'
 
 #
@@ -174,6 +175,8 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 # Set syntax pattern styles.
 # zstyle ':prezto:module:syntax-highlighting' pattern \
 #   'rm*-rf*' 'fg=white,bold,bg=red'
+
+zstyle ':prezto:module:syntax-highlighting' color 'yes'
 
 #
 # Terminal
