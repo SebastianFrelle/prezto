@@ -125,7 +125,8 @@ alias brewup='echo ">>updating && upgrading brew<<"; brew update && brew upgrade
 alias st="subl"
 alias where="echo $PWD"
 
-# todo.sh alias
+# todo.sh
+export TODOTXT_DEFAULT_ACTION=ls
 alias t='todo.sh -d ~/.todo.cfg'
 
 # open new tab in same working directory 
@@ -147,4 +148,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 fpath=(~/.zsh/completion $fpath)
 
-unsetopt correct_all
+unsetopt correct
+unsetopt correctall
+DISABLE_CORRECTION="true"
