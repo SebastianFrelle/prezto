@@ -143,11 +143,22 @@ export WORKPATH="$HOME/work"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-# Add rust cargo to path
-export PATH="$HOME/.cargo/bin:$PATH"
+# Add GOROOT install to path
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+# Add `go install` directory to path
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 
 fpath=(~/.zsh/completion $fpath)
 
 unsetopt correct
 unsetopt correctall
 DISABLE_CORRECTION="true"
+
+alias rm="nocorrect rm"
+
+# todotxt-machine
+alias tm="todotxt-machine"
+
+# github credentials
+export HOMEBREW_GITHUB_API_TOKEN="5ee3a05feeb14713f3811338727a45da27030b49"
