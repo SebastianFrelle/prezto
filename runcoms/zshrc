@@ -16,9 +16,6 @@ fi
 export EDITOR='vim'
 export VISUAL=$EDITOR
 
-# USER CONFIG for antlr
-export CLASSPATH='.:/usr/local/Cellar/antlr/4.5.2/antlr-4.5.2-complete.jar:$CLASSPATH"
-
 # Customize to your needs...
 # Path to your oh-my-zsh installation.
 # export ZSH=/Users/zhelvisdanas/.oh-my-zsh
