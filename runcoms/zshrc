@@ -75,7 +75,7 @@ export CLASSPATH='.:/usr/local/Cellar/antlr/4.5.2/antlr-4.5.2-complete.jar:$CLAS
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin:/opt/local/bin:/opt/local/sbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin:/opt/local/bin:/opt/local/sbin:$HOME/.cargo/bin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -127,7 +127,13 @@ alias where="echo $PWD"
 
 # todo.sh
 export TODOTXT_DEFAULT_ACTION=ls
-alias t='todo.sh -d ~/.todo.cfg'
+alias t='todo.sh -t -a -d ~/.todo.cfg'
+alias sc='t list @school'
+alias scadd='t add @school'
+alias wo='t list @work'
+alias woadd='t add @work'
+alias li='t list @life'
+alias liadd='t add @life'
 
 # open new tab in same working directory 
 # obv only works for iterm
@@ -143,12 +149,6 @@ export WORKPATH="$HOME/work"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-# Add GOROOT install to path
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
-# Add `go install` directory to path
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-
 fpath=(~/.zsh/completion $fpath)
 
 unsetopt correct
@@ -157,8 +157,18 @@ DISABLE_CORRECTION="true"
 
 alias rm="nocorrect rm"
 
-# todotxt-machine
-alias tm="todotxt-machine"
+# Set GOPATH
+export GOPATH=$(go env GOPATH)
+export PATH=$PATH:$GOPATH/bin
 
-# github credentials
-export HOMEBREW_GITHUB_API_TOKEN="5ee3a05feeb14713f3811338727a45da27030b49"
+# Physical path for pwd
+alias pwd="pwd -P"
+
+# Spotify developer credentials
+export SPOTIPY_CLIENT_ID='fbe9158646964811a5fa585c92d05623'
+export SPOTIPY_CLIENT_SECRET='0cf903ed69354d42b0d63e22c0fb5cf1'
+export SPOTIPY_REDIRECT_URI='http://localhost/'
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
